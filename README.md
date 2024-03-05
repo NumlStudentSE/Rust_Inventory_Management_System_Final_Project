@@ -1,6 +1,6 @@
 # Rust SysInvent
 
-![Visual_Img](https://github.com/NumlStudentSE/Rust_SysInvent/assets/114599159/63d313af-1b76-4358-b5f5-4efa1a153357)
+![visual_image](https://github.com/NumlStudentSE/Rust_SysInvent/assets/114599159/31018853-1ad6-43f5-a267-359b56c0d443)
 
 
 # About Me
