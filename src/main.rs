@@ -43,11 +43,11 @@ impl Inventory {
             println!("-------------------");
             println!("'Edit Menu'");
             println!("-------------------");
-            println!("=> 1: Edit Name");
-            println!("=> 2: Edit Price");
-            println!("=> 3: Edit Description");
-            println!("=> 4: Edit Quantity");
-            println!("=> 5: Return to Main Menu");
+            println!("** 1: Edit Name");
+            println!("** 2: Edit Price");
+            println!("** 3: Edit Description");
+            println!("** 4: Edit Quantity");
+            println!("** 5: Return to Main Menu");
             let item_choice = get_integer_input();
 
             match item_choice {
@@ -60,7 +60,7 @@ impl Inventory {
                     product.edit_name(new_name);
                 },
                 2 => {
-                    println!("Enter New Price: ");
+                    println!("Enter New Price of the product: ");
                     let new_price = get_float_input();
 
                     product.edit_price(new_price);
@@ -68,13 +68,13 @@ impl Inventory {
                 3 => {
                     let mut new_desc = String::new();
 
-                    println!("Enter New Description: ");
+                    println!("Enter New Description of the product: ");
                     io::stdin().read_line(&mut new_desc).expect("Failed to read line");
 
                     product.edit_description(new_desc);
                 },
                 4 => {
-                    println!("Enter New Quantity: ");
+                    println!("Enter New Quantity of the product: ");
                     let new_quantity = get_integer_input();
 
                     product.edit_quantity(new_quantity);
@@ -91,9 +91,9 @@ impl Inventory {
 
     fn delete_product(&mut self, name: &str) {
         loop {
-            println!("=> 1. Remove One Item Of This Product");
-            println!("=> 2. Remove All Items Of This Product");
-            println!("=> 3. Return to Main Menu");
+            println!("*** 1. Delete one single quantity of this Product");
+            println!("*** 2. Delete all stock of this Product");
+            println!("*** 3. Return to Main Menu");
             let item_choice = get_integer_input();
             match item_choice {
                 1 => {
@@ -121,7 +121,7 @@ impl Inventory {
                 }
 
                 _ => {
-                    println!("Invalid Input, Choose a valid option:");
+                    println!("Incorrect choice, Select a valid choice:");
                 }
             }
         }
@@ -151,7 +151,7 @@ impl Inventory {
 fn main() {
 
     if !admin_check() {
-        println!("Sorry, wrong credentials :<\nExiting System!");
+        println!("Please enter valid credentials:<\nShutting down the System!");
         return;
     }
 
@@ -159,15 +159,15 @@ fn main() {
 
     let mut menu_choice: i32;
 
-    println!("\tRusty Inventory Management\n----------------------------------------");
+    println!("\tRust Inventory Management\n----------------------------------------");
 
     loop {
         println!("----------------------------------------
-=> 1: Add Product
-=> 2: Edit Product Info
-=> 3: Delete Product
-=> 4: Generate Inventory Report
-=> 5: Exit System");
+** 1: Add Product
+** 2: Edit Product Info
+** 3: Delete Product
+** 4: Generate Inventory Report
+** 5: Close Inventory");
         println!("----------------------------------------");
 
         println!("Enter your choice:");
@@ -225,11 +225,11 @@ fn main() {
             },
 
             5 => {
-                println!("Goodbye :>");
+                println!("Shutting the inventory");
                 return;
             }
 
-            _ => println!("Choose a valid option!"),
+            _ => println!("Select a valid choice!"),
         }
     }
 
@@ -243,7 +243,7 @@ fn get_integer_input() -> i32 {
 
         match input.trim().parse::<i32>() {
             Ok(num) => return num,
-            Err(_) => println!("Invalid input. Please enter an integer."),
+            Err(_) => println!("Please enter a valid value e.g., integer."),
         }
     }
 }
@@ -256,7 +256,7 @@ fn get_float_input() -> f64 {
 
         match input.trim().parse::<f64>() {
             Ok(num) => return num,
-            Err(_) => println!("Invalid input. Please enter a float value."),
+            Err(_) => println!("Please enter a valid value e.g., float."),
         }
     }
 }
@@ -265,18 +265,18 @@ fn admin_check() -> bool {
 
 
     let user_check_val : String = String::from("admin");
-    let pass_check_val : String = String::from("admin");
+    let pass_check_val : String = String::from("admin123");
 
-    println!("\n----------------------------------------\n\tRusty Inventory Management\n----------------------------------------");
+    println!("\n----------------------------------------\n\tRust Inventory Management\n----------------------------------------");
     println!("\t      'Login Panel'\n");
 
     let mut user_name = String::new();
-    println!("Enter your username: ");
+    println!("Enter a valid Username: ");
     io::stdin().read_line(&mut user_name)
     .expect("Failed to read line");
 
     let mut user_pass = String::new();
-    println!("Enter your password: ");
+    println!("Enter a valid Password: ");
     io::stdin().read_line(&mut user_pass)
     .expect("Failed to read line");
 
